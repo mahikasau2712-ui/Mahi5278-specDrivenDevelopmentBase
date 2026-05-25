@@ -1,0 +1,69 @@
+Metadata-Version: 2.4
+Name: vibe_reports_api
+Version: 0.1.0
+Summary: A clean, production-ready report service with filtering, sorting, pagination, and analytics.
+Author-email: Vibe Coder <you@example.com>
+License-Expression: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi>=0.110.0
+Requires-Dist: uvicorn>=0.23.0
+Requires-Dist: pydantic>=2.8.0
+Provides-Extra: test
+Requires-Dist: pytest>=8.0.0; extra == "test"
+Requires-Dist: httpx>=0.28.0; extra == "test"
+Requires-Dist: pytest-cov>=4.0.0; extra == "test"
+
+# Vibe Reports API
+
+A polished Python FastAPI service for managing structured reports with rich filtering, sorting, pagination, and analytics.
+
+## What makes this project better
+
+- Fully typed and modular design
+- Clean domain separation: data, models, repository, API
+- Advanced filter support and metadata in responses
+- Report summary, detail, and statistics endpoints
+- Built-in validation and OpenAPI docs
+- Unit tests with FastAPI `TestClient`
+
+## Requirements
+
+- Python 3.10+
+
+## Setup
+
+```powershell
+cd c:\Users\Dell\OneDrive\Desktop\vibe_coding
+python -m venv .venv
+.\.venv\Scripts\activate
+python -m pip install -e .
+```
+
+## Run the app
+
+```powershell
+uvicorn app.api:app --reload --port 8000
+```
+
+Then open `http://127.0.0.1:8000/docs` for interactive API documentation.
+
+## Endpoints
+
+- `GET /health` — service health check
+- `GET /reports` — list reports with filters, sorting, and pagination
+- `GET /reports/{report_id}` — fetch a single report by ID
+- `GET /reports/stats` — aggregated report statistics by status
+
+## Example queries
+
+```powershell
+curl "http://127.0.0.1:8000/reports?status=approved&search=Q2&limit=10"
+curl "http://127.0.0.1:8000/reports/stats"
+```
+
+## Tests
+
+```powershell
+pytest
+```

@@ -1,0 +1,31 @@
+[project]
+name = "vibe_reports_api"
+version = "0.1.0"
+description = "A clean, production-ready report service with filtering, sorting, pagination, and analytics."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+  { name = "Vibe Coder", email = "you@example.com" }
+]
+dependencies = [
+  "fastapi>=0.110.0",
+  "uvicorn>=0.23.0",
+  "pydantic>=2.8.0"
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest>=8.0.0",
+  "httpx>=0.28.0",
+  "pytest-cov>=4.0.0"
+]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-q --disable-warnings"
+python_files = "test_*.py"
+
+[build-system]
+requires = ["setuptools>=65.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
